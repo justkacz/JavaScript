@@ -130,13 +130,24 @@ console.log(isEven2(43));
 // 3) function that takes a string as its only argument and returns 
 // a number that indicates how many uppercase “B” characters there are in the string.
 function countBs(x){
-    // x=String(x);
+    x=String(x);
     let count=0;
-    // for (let i=0; i<x.length; i++){
-        // if(x[i]==='B') count+=1
-    // } return count
-    x.forEach((n,i)=>{n==='B'?count+=1:count});
-    return count
+    for (let i=0; i<x.length; i++){
+        if(x[i]==='B') count+=1;
+    } return count
 }
 
-console.log(countBs('abcBdBrrr'));
+function countBs2(x){
+    let count=0;
+    [...x].forEach((n,i)=>{n==='B'?count+=1:count});
+    return count;
+}
+console.log(countBs2('abcBdBrrBB'));
+
+function countChar(word, char) {
+    let count=0;
+    [...word].forEach((n, i)=>{n===char?count+=1:count});
+    return count;
+}
+
+console.log(countChar('AAAvdicnnndftn', 'f'));
